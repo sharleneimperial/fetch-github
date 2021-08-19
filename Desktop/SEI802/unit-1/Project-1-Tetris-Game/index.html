@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Project 1 Tetris Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="menuWrap">
+    <input type="checkbox" class="transfer">
+    <div class="tetrisMenu">
+      <div></div>
+    </div>
+    <div class="menuMain">
+      <div class="menuInfo">
+        <h2 class="howToPlay">How To Play:</h2>
+        <p class="rulesOfGame"> Press the <b class="ruleKey">UP</b> key to rotate your tetropiece, press the <b class="ruleKey">LEFT</b>
+          and <b class="ruleKey">RIGHT</b> to <br> move across the board. Pressing on the <b class="ruleKey">DOWN</b> key will accelerate the
+          tetropieces down.
+        <br>Enjoy The Game!</b></p>
+        <button class="closeXButton">X</button>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <h1 class="welcome">Welcome to<br>Sharlene's Tetris Game!</h1>
+  </header>
+  
+  <h3>Your Score :<span id="thescore">0</span></h3>
+
+  <!--Tetris music plays when the Start/Pause button is pressed, and stops when pressed again-->  
+  <button id="startButton" onClick="startPause()"> 
+  <audio src="audio/tetris-gameboy-02.mp3" 
+  autoplay
+  loop></audio>Start/Pause</button>
+
+  <script>
+    var aud = document.getElementById("startButton").children[0];
+    var isPlaying = false;
+    aud.volume = 0.2;
+    aud.pause();
+
+    function startPause() {
+      if (isPlaying) {
+        aud.pause();
+      } else {
+        aud.play();
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+  
+
+
+  <div class="container1">
+  <div class="grid">
+    <div></div> 
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!-- multiplying these 10 class "container1" divs by 20-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="occupied"></div> <!--"occupied" class last 10 divs-->
+    <div class="occupied"></div>
+    <div class="occupied"></div>
+    <div class="occupied"></div>
+    <div class="occupied"></div>
+    <div class="occupied"></div>
+    <div class="occupied"></div>
+    <div class="occupied"></div>
+    <div class="occupied"></div>
+    <div class="occupied"></div> <!-- total of 200 divs-->
+    </div>
+
+    <h2 class="nextUp">Next Up:
+      </h2>
+    <div class="smallGrid">
+      <div></div> 
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div> <!--total of 16 divs for class "smallGrid" , Next Up: box in JS-->
+    </div>
+
+
+    </div>
+
+    <main>
+      <canvas id='tetris' width="200" height="400"></canvas>
+  </main>
+  
+</body>
+</html>
